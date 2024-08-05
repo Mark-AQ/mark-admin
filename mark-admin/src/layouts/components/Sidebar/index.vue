@@ -21,7 +21,7 @@
 	import { ref, computed } from 'vue'
 	import { useRouter, useRoute } from 'vue-router'
 	import Item from './item.vue'
-	import { useVisitedRoutes } from '@/stores/route'
+	import { useVisitedRoutes } from '@/store/modules/route'
 	const router = useRouter()
 	const route = useRoute()
 	const visitedRoutes = useVisitedRoutes()

@@ -19,8 +19,7 @@ app.use(createPinia());
 app.use(router);
 
 app.use(ElementPlus);
-
-// 按需引入icon
+// console.log('import.meta.env :>> ', import.meta.env);
 const icons = [
   "House",
   "Service",

@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 
 export default defineConfig({
-  base: './', // 开发或生产环境服务的公共基础路径 配置引入相对路径
+  base: './',   // 开发或生产环境服务的公共基础路径
   plugins: [
     vue(),
     VueSetuoExtend()

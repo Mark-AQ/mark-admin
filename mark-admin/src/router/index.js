@@ -1,19 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const Layouts = () => import('@/layouts/index.vue')
 
-import { useVisitedRoutes } from '@/stores/route.js'
+import { useVisitedRoutes } from '@/store/modules/route.js'
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
 		{
 			path: '/404',
-			component: Layouts,
-			component: () => import('@/components/wrong/404.vue'),
+			component: () => import('@/views/features/404.vue'),
 			meta: {
 				hidden: true,
 			},
-			alias: '/:pathMatch(.*)*',
+			alias: '/:pathMatch(.*)*'
 		},
 		{
 			path: '/login',
@@ -149,6 +148,7 @@ const router = createRouter({
 		},
 	],
 })
+
 
 router.afterEach((to, from) => {
 	const store = useVisitedRoutes()
