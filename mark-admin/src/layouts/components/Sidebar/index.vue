@@ -12,7 +12,7 @@
 			unique-opened
 			text-color="#fff"
 		>
-			<Item :menus="showRoutes"></Item>
+			<Menu :menus="showRoutes"></Menu>
 		</el-menu>
 	</div>
 </template>
@@ -20,7 +20,7 @@
 <script setup>
 	import { ref, computed } from 'vue'
 	import { useRouter, useRoute } from 'vue-router'
-	import Item from './item.vue'
+	import Menu from './menu.vue'
 	import { useVisitedRoutes } from '@/store/modules/tabs'
 	const router = useRouter()
 	const route = useRoute()
