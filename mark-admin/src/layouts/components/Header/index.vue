@@ -2,16 +2,13 @@
 	<div class="header">
 		<div class="topBar">
 			<el-scrollbar>
-				<TopBar></TopBar>
+				<Breadcrumb></Breadcrumb>
 			</el-scrollbar>
 		</div>
 		<div class="rigthInfo">
 			<el-dropdown :hide-on-click="false" @command="handleCommand">
 				<div class="content">
-					<el-avatar
-						style="margin-right: 10px"
-						src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-					/>
+					<el-avatar style="margin-right: 10px" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
 					<span class="projectName">MarkAdmin</span>
 				</div>
 				<template #dropdown>
@@ -29,7 +26,7 @@
 </template>
 
 <script setup name="Header">
-	import TopBar from '@/layouts/components/Header/TopBar/index.vue'
+	import Breadcrumb from '@/layouts/components/Header/Breadcrumb/index.vue'
 	import TopTaps from '@/layouts/components/Header/TopTaps/index.vue'
 	import { ElMessage } from 'element-plus'
 	import { useRouter } from 'vue-router'

@@ -1,6 +1,6 @@
 # mark-admin
 
-This template should help get you started developing with Vue 3 in Vite.
+Vite 脚手架 Vue3 轻量级后台管理模板
 
 ## Recommended IDE Setup
 

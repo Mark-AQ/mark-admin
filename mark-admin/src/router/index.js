@@ -4,7 +4,7 @@ const Layouts = () => import('@/layouts/index.vue')
 import { useVisitedRoutes } from '@/store/modules/route.js'
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
 	routes: [
 		{
 			path: '/404',
@@ -12,7 +12,7 @@ const router = createRouter({
 			meta: {
 				hidden: true,
 			},
-			alias: '/:pathMatch(.*)*'
+			alias: '/:pathMatch(.*)*',
 		},
 		{
 			path: '/login',
@@ -149,13 +149,12 @@ const router = createRouter({
 	],
 })
 
-
 router.afterEach((to, from) => {
 	const store = useVisitedRoutes()
 
 	let result = false
 	const routes = store.routes
-	// 判断点钱点击路由是否存在
+	// 判断点击路由是否存在
 	routes.forEach((item) => {
 		if (item.fullPath === to.fullPath) {
 			result = true

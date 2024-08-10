@@ -19,7 +19,7 @@ app.use(createPinia());
 app.use(router);
 
 app.use(ElementPlus);
-// console.log('import.meta.env :>> ', import.meta.env);
+
 const icons = [
   "House",
   "Service",
@@ -32,6 +32,8 @@ const icons = [
   "Finished",
   "Fold",
   "Expand",
+  "User",
+  'password'
 ];
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   icons.filter((icon) => {
