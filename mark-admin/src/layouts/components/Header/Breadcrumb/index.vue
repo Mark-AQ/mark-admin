@@ -19,7 +19,7 @@
 <script setup>
 	import { ref, watchEffect } from 'vue'
 	import { useRoute } from 'vue-router'
-	import { useVisitedRoutes } from '@/store/modules/route'
+	import { useVisitedRoutes } from '@/store/modules/tabs'
 
 	const visitedRoutes = useVisitedRoutes()
 	const route = useRoute()

@@ -25,7 +25,7 @@
 	import Sidebar from '@/layouts/components/Sidebar/index.vue'
 	import Header from '@/layouts/components/Header/index.vue'
 	import Footer from '@/layouts/components/Footer/index.vue'
-	import { useVisitedRoutes } from '@/store/modules/route'
+	import { useVisitedRoutes } from '@/store/modules/tabs'
 
 	import { useRouter } from 'vue-router'
 	const router = useRouter()

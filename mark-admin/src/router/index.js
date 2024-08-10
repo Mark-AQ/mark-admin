@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const Layouts = () => import('@/layouts/index.vue')
 
-import { useVisitedRoutes } from '@/store/modules/route.js'
+import { useVisitedRoutes } from '@/store/modules/tabs.js'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
