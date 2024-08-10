@@ -13,7 +13,7 @@
 				<component name="mycomoonent" class="icon" :is="item.meta?.elIcon"></component>
 				<span>{{ item.meta?.title }}</span>
 			</template>
-			<item :menus="item.children"></item>
+			<menu :menus="item.children"></menu>
 		</el-sub-menu>
 	</template>
 </template>
