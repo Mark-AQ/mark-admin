@@ -1,13 +1,10 @@
 <template>
-    <div style="background-color: rosybrown;">
-        我是设置页
-    </div>
-</template>
-
-<script setup>
-
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+    <el-watermark
+      :width="130"
+      :height="30"
+      image="https://element-plus.org/images/element-plus-logo.svg"
+    >
+      <div style="height: 500px" />
+    </el-watermark>
+  </template>
+  

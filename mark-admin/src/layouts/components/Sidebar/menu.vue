@@ -13,34 +13,40 @@
 				<component name="mycomoonent" class="icon" :is="item.meta?.elIcon"></component>
 				<span>{{ item.meta?.title }}</span>
 			</template>
-			<menu :menus="item.children"></menu>
+			<Menu :menus="item.children"></Menu>
 		</el-sub-menu>
 	</template>
 </template>
 
-<script setup>
-	import { useRouter } from 'vue-router'
-	const router = useRouter()
-	const props = defineProps({
-		menus: {
-			type: Object,
-			default: [],
-		},
-	})
-	const elSele = (val) => {
-		router.push(val.index)
-	}
+<script setup name="Menu">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const props = defineProps({
+	menus: {
+		type: Object,
+		default: [],
+	},
+})
+const elSele = (val) => {
+	router.push(val.index)
+}
 </script>
 
 <style lang="scss" scoped>
-	span {
-		padding-left: 8px;
-		font-size: 16px;
-		text-align: center;
-	}
-	.icon {
-		width: 20px;
-		height: 20px;
-		flex-shrink: 0;
-	}
+span {
+	padding-left: 8px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+}
+
+:deep(.el-sub-menu__title:hover) {
+	background-color: transparent !important;
+}
 </style>

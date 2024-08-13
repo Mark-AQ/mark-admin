@@ -14,6 +14,13 @@ export default defineConfig(({ mode }) => {
 				'@': '/src', // 将@别名指向src目录
 			},
 		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use "@/styles/mixins.scss" as *;`,
+				},
+			},
+		},
 		server: {
 			// 设置代理，根据我们项目实际情况配置
 			proxy: {},

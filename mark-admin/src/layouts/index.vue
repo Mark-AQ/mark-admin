@@ -13,7 +13,7 @@
 					<router-view />
 				</el-main>
 
-				<el-footer height="30px">
+				<el-footer class="footer" height="30px">
 					<Footer></Footer>
 				</el-footer>
 			</el-container>
@@ -22,43 +22,55 @@
 </template>
 
 <script setup name="dashboard">
-	import Sidebar from '@/layouts/components/Sidebar/index.vue'
-	import Header from '@/layouts/components/Header/index.vue'
-	import Footer from '@/layouts/components/Footer/index.vue'
-	import { useVisitedRoutes } from '@/store/modules/tabs'
+import Sidebar from '@/layouts/components/Sidebar/index.vue'
+import Header from '@/layouts/components/Header/index.vue'
+import Footer from '@/layouts/components/Footer/index.vue'
+import { useVisitedRoutes } from '@/store/modules/tabs'
 
-	import { useRouter } from 'vue-router'
-	const router = useRouter()
-	const visitedRoutes = useVisitedRoutes()
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const visitedRoutes = useVisitedRoutes()
 </script>
 
 <style lang="scss" scoped>
-	@import '@/assets/mixins.scss';
-	.container {
-		.header {
-			position: relative;
-			height: 86px;
-			background: white;
-			--el-header-padding: 0 10px;
-			// box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-		}
-		.main {
-			width: 100%;
-			height: calc(100vh - 86px - 30px); //动态计算长度值
-			overflow-y: scroll;
-			overflow-x: hidden;
-			@extend %scrollbar;
-			background: #f1f1f1;
-			--el-main-padding: 10px;
-		}
-		.aside {
-			background: #1c2c49;
-			height: 100vh;
-			width: 180px;
-			transition: width 0.5s ease-in-out;
-			&.fold {
-				width: 65px;
-			}
+@import '@/styles/mixins.scss';
+
+.container {
+	i {
+		width: 90px;
+		height: 90px;
+	}
+
+	.header {
+		position: relative;
+		height: 86px;
+		--el-header-padding: 0 0px;
+	}
+
+	.main {
+		width: 100%;
+		height: calc(100vh - 86px - 30px); //动态计算长度值
+		overflow-y: scroll;
+		overflow-x: hidden;
+		@extend %scrollbar;
+		background-color: var(--mk-bg-color);
+		--el-main-padding: 15px;
+	}
+
+	.aside {
+		background-color: var(--mk-menu-bg-color);
+		height: 100vh;
+		width: 180px;
+		transition: width 0.5s ease-in-out;
+
+		&.fold {
+			width: 65px;
 		}
 	}
+
+	.footer {
+		--el-footer-padding: 0 0px;
+		color: var(--mk-text-color);
+	}
+}
 </style>

@@ -1,0 +1,22 @@
+/* 全局css变量 主题 */
+:root {
+    --mk-bg-color: #f1f1f1;
+    --mk-text-color: #050101;
+    --mk-menu-bg-color: #fff;
+    --mk-menu-text-color: #050101;
+    --mk-menu-active-color: #1a8bfb;
+    --mk-menu-hover-color: #ebf2f8;
+    --mk-header-bg-color: #fff;
+    --mk-main-bg-color: #fff;
+}
+
+:root.dark {
+    --mk-bg-color: #0f172a;
+    --mk-text-color: #fff;
+    --mk-menu-bg-color: #1c2c49;
+    --mk-menu-text-color: #fff;
+    --mk-menu-active-color: #1a8bfb;
+    --mk-menu-hover-color: #141f34;
+    --mk-header-bg-color: #1c2c49;
+    --mk-main-bg-color: #1c2c49;
+}

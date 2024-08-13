@@ -31,6 +31,7 @@
 		display: flex;
 		align-items: center;
 		height: 34px;
+		margin-left: 15px;
 		.el-tag {
 			--el-tag-font-size: 13px;
 			padding: 0 10px;
