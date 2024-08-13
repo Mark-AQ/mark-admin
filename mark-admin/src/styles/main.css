@@ -6,3 +6,8 @@
 	height: 100vh; /* 视口高度 */
 	overflow: hidden; /* 防止内容溢出 */
 }
+
+
+:root {
+    --mk-sidebar-width: 160px;
+}

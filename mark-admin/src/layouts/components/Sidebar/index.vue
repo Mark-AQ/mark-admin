@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="logoBox" :class="!visitedRoutes.expand ? 'logoBoxExpand' : ''">
+		<div class="logoBox">
 			<el-avatar :size="52" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" />
 			<i v-if="!visitedRoutes.expand" class="iconfont icon-logo"></i>
 
@@ -43,11 +43,6 @@ const showRoutes = computed(() => router.options.routes.filter((item) => (item.m
 		}
 	}
 
-	.logoBoxExpand {
-		justify-content: start;
-		margin-left: 16px;
-	}
-
 	:deep(.el-menu) {
 		border: none;
 		transition: all 10ms;
@@ -55,7 +50,7 @@ const showRoutes = computed(() => router.options.routes.filter((item) => (item.m
 		--el-menu-text-color: var(--mk-menu-text-color) !important;
 	}
 
-	:deep(.el-menu-item.is-active ) {
+	:deep(.el-menu-item.is-active) {
 		color: var(--mk-menu-active-color);
 		background-color: var(--mk-menu-hover-color);
 	}

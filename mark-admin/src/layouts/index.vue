@@ -60,10 +60,10 @@ const visitedRoutes = useVisitedRoutes()
 	.aside {
 		background-color: var(--mk-menu-bg-color);
 		height: 100vh;
-		width: 180px;
+		width: var(--mk-sidebar-width);
 		transition: width 0.5s ease-in-out;
-
-		&.fold {
+		// 菜单收起来的时候
+		&.fold { 
 			width: 65px;
 		}
 	}
