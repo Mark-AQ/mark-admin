@@ -1,6 +1,7 @@
 <template>
 	<div class="footer">
-		<span>vue3-vite-admin</span>
+		<span>Copyright © 2024 Mark xxxx科技有限公司 湘ICP备9xxxx7x78x号 | 湘公网安备xxxxxxxxx号 | 湘IAS备xxxxxx6xxx7 |
+			湘xxxxxH33xxx</span>
 	</div>
 </template>
 
@@ -10,9 +11,12 @@
 .footer {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: start;
 	height: 30px;
-	color: #a6a6a6;
-	background-color: var(--mk-header-bg-color);
+	color: var(--mk-text-color);
+
+	span {
+		font-size: 14px;
+	}
 }
 </style>
