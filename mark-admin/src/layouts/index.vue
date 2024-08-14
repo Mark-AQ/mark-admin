@@ -33,7 +33,7 @@ const visitedRoutes = useVisitedRoutes()
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/mixins.scss';
+@import '@/assets/styles/mixins.scss';
 
 .container {
 	i {
@@ -48,13 +48,14 @@ const visitedRoutes = useVisitedRoutes()
 	}
 
 	.main {
-		width: 100%;
-		height: calc(100vh - 86px - 30px); //动态计算长度值
+		height: calc(100vh - 86px - 30px - 30px); //动态计算长度值
 		overflow-y: scroll;
 		overflow-x: hidden;
+		background-color: var(--mk-main-bg-color);
 		@extend %scrollbar;
-		background-color: var(--mk-bg-color);
-		--el-main-padding: 15px;
+		margin: 15px;
+		border-radius: 5px;
+		// --el-main-padding: 15px;
 	}
 
 	.aside {
@@ -62,8 +63,9 @@ const visitedRoutes = useVisitedRoutes()
 		height: 100vh;
 		width: var(--mk-sidebar-width);
 		transition: width 0.5s ease-in-out;
+
 		// 菜单收起来的时候
-		&.fold { 
+		&.fold {
 			width: 65px;
 		}
 	}

@@ -11,9 +11,9 @@
 			</el-scrollbar>
 		</div>
 		<div class="rigthInfo">
-			<div style="margin-right: 20px; padding-top: 10px" @click="toggleDark()">
-				<el-icon v-if="isDark" size="25px">
-					<Moon />
+			<div class="theme" @click="toggleDark()">
+				<el-icon v-if="!isDark" size="25px">
+					<Sunrise />
 				</el-icon>
 				<el-icon v-else size="25px">
 					<Sunny />
@@ -42,12 +42,29 @@
 import Breadcrumb from '@/layouts/components/Header/Breadcrumb/index.vue'
 import TopTaps from '@/layouts/components/Header/TopTaps/index.vue'
 import { ElMessage } from 'element-plus'
-import { useDark, useToggle } from '@vueuse/core'
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
-
 import { useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
 const router = useRouter()
+
+const isDark = ref(false)
+const savedTheme = localStorage.getItem('theme')
+if (savedTheme) {
+	isDark.value = savedTheme === 'dark'
+} else {
+	// prefers-color-scheme 设置默认的配色方案
+	isDark.value = window.matchMedia(`(prefers-color-scheme: light)`).matches
+}
+const applyTheme = () => {
+	const theme = isDark.value ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', theme);
+	localStorage.setItem('theme', theme);
+}
+
+watch(isDark, applyTheme, { immediate: true });
+
+const toggleDark = () => {
+	isDark.value = !isDark.value
+}
 
 const handleCommand = (command) => {
 	switch (command) {
@@ -84,22 +101,35 @@ const handleCommand = (command) => {
 
 	.rigthInfo {
 		position: absolute;
-		top: 17px;
+		top: 16px;
 		right: 20px;
 		height: 52px;
 		display: flex;
 		align-items: center;
 
-		.content {
+		.theme {
+			margin-right: 20px;
+			@include wh(30px, 30px);
 			display: flex;
+			justify-content: center;
 			align-items: center;
-		}
 
-		.projectName {
-			font-weight: 500;
-			font-size: 16px;
-			color: var(--mk-text-color);
+			&:hover {
+				border-radius: 100%;
+				box-shadow: 0 0 10px 5px rgba(245, 176, 176, 0.5);
+			}
 		}
+	}
+
+	.content {
+		display: flex;
+		align-items: center;
+	}
+
+	.projectName {
+		font-weight: 500;
+		font-size: 16px;
+		color: var(--mk-text-color);
 	}
 }
 </style>

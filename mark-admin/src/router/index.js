@@ -41,7 +41,7 @@ const router = createRouter({
 		{
 			path: '/store',
 			component: Layouts,
-			redirect: '/store/page',
+			redirect: '/store/index',
 			name: 'Store',
 			meta: {
 				title: '商城',
@@ -49,21 +49,21 @@ const router = createRouter({
 			},
 			children: [
 				{
-					path: '/store/page',
+					path: '/store/index',
 					component: () => import('@/views/store/index.vue'),
-					name: 'Store',
+					name: 'StoreIndex',
 				},
 			],
 		},
 		{
 			path: '/wealth',
 			component: Layouts,
-			redirect: '/wealth/a',
+			redirect: '/wealth',
 			meta: { title: '财富', elIcon: 'MessageBox' },
 			name: 'Wealth',
 			children: [
 				{
-					path: '/wealth/a',
+					path: '/wealth',
 					redirect: '/wealth/a/c',
 					name: 'A',
 					meta: { title: '页面A' },
@@ -93,56 +93,56 @@ const router = createRouter({
 		{
 			path: '/client',
 			component: Layouts,
-			redirect: '/client/home',
+			redirect: '/client/index',
 			meta: { title: '客户', elIcon: 'Finished' },
 			name: 'Client',
 			children: [
 				{
-					path: '/client/home',
+					path: '/client/index',
 					component: () => import('@/views/client/index.vue'),
-					name: 'Client',
+					name: 'ClientIndex',
 				},
 			],
 		},
 		{
 			path: '/reservation',
 			component: Layouts,
-			redirect: '/reservation/home',
+			redirect: '/reservation/index',
 			meta: { title: '预约', elIcon: 'PieChart' },
 			name: 'Reservation',
 			children: [
 				{
-					path: '/reservation/home',
+					path: '/reservation/index',
 					component: () => import('@/views/reservation/index.vue'),
-					name: 'Reservation',
+					name: 'ReservationIndex',
 				},
 			],
 		},
 		{
 			path: '/train',
 			component: Layouts,
-			redirect: '/train/home',
+			redirect: '/train/index',
 			meta: { title: '培训', elIcon: 'ChatSquare' },
 			name: 'Train',
 			children: [
 				{
-					path: '/train/home',
+					path: '/train/index',
 					component: () => import('@/views/train/index.vue'),
-					name: 'Train',
+					name: 'TrainIndex',
 				},
 			],
 		},
 		{
 			path: '/setting',
 			component: Layouts,
-			redirect: '/setting/home',
+			redirect: '/setting/index',
 			meta: { title: '系统', elIcon: 'Setting' },
 			name: 'Setting',
 			children: [
 				{
-					path: '/setting/home',
+					path: '/setting/index',
 					component: () => import('@/views/setting/index.vue'),
-					name: 'Setting',
+					name: 'SettingIndex',
 				},
 			],
 		},

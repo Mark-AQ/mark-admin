@@ -1,6 +1,6 @@
 /* 全局css变量 主题 */
 :root {
-    --mk-bg-color: #f1f1f1;
+    --mk-bg-color: #f1f5f9;
     --mk-text-color: #050101;
     --mk-menu-bg-color: #fff;
     --mk-menu-text-color: #050101;
@@ -10,7 +10,7 @@
     --mk-main-bg-color: #fff;
 }
 
-:root.dark {
+[data-theme='dark'] {
     --mk-bg-color: #0f172a;
     --mk-text-color: #fff;
     --mk-menu-bg-color: #1c2c49;
