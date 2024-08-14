@@ -33,8 +33,6 @@ const visitedRoutes = useVisitedRoutes()
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/mixins.scss';
-
 .container {
 	i {
 		width: 90px;
@@ -48,11 +46,11 @@ const visitedRoutes = useVisitedRoutes()
 	}
 
 	.main {
+		@extend %scrollbar;
 		height: calc(100vh - 86px - 30px - 30px); //动态计算长度值
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background-color: var(--mk-main-bg-color);
-		@extend %scrollbar;
 		margin: 15px;
 		border-radius: 5px;
 		// --el-main-padding: 15px;

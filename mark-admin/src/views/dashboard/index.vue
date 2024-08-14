@@ -16,7 +16,7 @@
 .container {
   background-color: var(--mk-main-bg-color);
   margin-bottom: 15px;
-
+  
   .el-carousel__item h3 {
     display: flex;
     justify-content: center;
