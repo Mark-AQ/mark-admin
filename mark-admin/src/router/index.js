@@ -71,13 +71,13 @@ const router = createRouter({
 						{
 							path: '/wealth/a/c',
 							component: () => import('@/views/wealth/index2.vue'),
-							meta: { title: '页面C', keepAlive: true },
+							meta: { title: '上划动画', keepAlive: true },
 							name: 'C',
 						},
 						{
 							path: '/wealth/a/d',
 							component: () => import('@/views/wealth/index3.vue'),
-							meta: { title: '页面D', keepAlive: true },
+							meta: { title: '红包降落', keepAlive: true },
 							name: 'D',
 						},
 					],

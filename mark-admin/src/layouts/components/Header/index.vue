@@ -19,6 +19,10 @@
 					<Sunny />
 				</el-icon>
 			</div>
+			<div class="full" @click="toggleFull()">
+				<i v-if="isFull" class="iconfont icon-quxiaoquanping_o"></i>
+				<i v-else class="iconfont icon-quanping_o"></i>
+			</div>
 			<el-dropdown :hide-on-click="false" @command="handleCommand">
 				<div class="content">
 					<el-avatar style="margin-right: 10px"
@@ -33,20 +37,19 @@
 				</template>
 			</el-dropdown>
 		</div>
-
-
 	</div>
 </template>
 
 <script setup name="Header">
 import Breadcrumb from '@/layouts/components/Header/Breadcrumb/index.vue'
 import TopTaps from '@/layouts/components/Header/TopTaps/index.vue'
+import screenfull from 'screenfull'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { ref, watch } from 'vue'
 const router = useRouter()
-
 const isDark = ref(false)
+const isFull = ref(false)
 const savedTheme = localStorage.getItem('theme')
 if (savedTheme) {
 	isDark.value = savedTheme === 'dark'
@@ -54,17 +57,33 @@ if (savedTheme) {
 	// prefers-color-scheme 设置默认的配色方案
 	isDark.value = window.matchMedia(`(prefers-color-scheme: light)`).matches
 }
+
+// 主题
 const applyTheme = () => {
 	const theme = isDark.value ? 'dark' : 'light';
 	document.documentElement.setAttribute('data-theme', theme);
 	localStorage.setItem('theme', theme);
 }
-
 watch(isDark, applyTheme, { immediate: true });
-
 const toggleDark = () => {
 	isDark.value = !isDark.value
 }
+
+// 全屏
+const toggleFull = () => {
+	if (screenfull.isEnabled) {
+		screenfull.toggle()
+	}
+}
+// 监听全屏
+screenfull.on('change', () => {
+	if (screenfull.isFullscreen) {
+		isFull.value = true
+	} else {
+		isFull.value = false
+	}
+})
+
 
 const handleCommand = (command) => {
 	switch (command) {
@@ -108,6 +127,23 @@ const handleCommand = (command) => {
 		align-items: center;
 
 		.theme {
+			margin-right: 15px;
+			@include wh(30px, 30px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&:hover {
+				border-radius: 100%;
+				box-shadow: 0 0 10px 5px rgba(245, 176, 176, 0.5);
+			}
+		}
+
+		.iconfont {
+			font-size: 28px;
+		}
+
+		.full {
 			margin-right: 20px;
 			@include wh(30px, 30px);
 			display: flex;
