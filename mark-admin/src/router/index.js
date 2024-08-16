@@ -149,37 +149,17 @@ const router = createRouter({
 	],
 })
 
+// 路由守卫
 router.afterEach((to, from) => {
 	const store = useVisitedRoutes()
-
-	let result = false
 	const routes = store.routes
-	// 判断点击路由是否存在
-	routes.forEach((item) => {
-		if (item.fullPath === to.fullPath) {
-			result = true
-		}
-	})
 
-	if (!result) {
-		// 不包含
-		to.isSele = true
-		// 设置其它为不选中状态
-		routes.forEach((m) => {
-			m.isSele = false
-		})
-		const { fullPath, meta, isSele } = to
+	// 保存访问过的路由
+	const res = routes.filter((item) => item.fullPath === to.fullPath)
+	if (res.length < 1) { // 不包含
+		const { fullPath, meta } = to
 		if (fullPath === '/login') return
-		store.addRoute({ fullPath, meta, isSele })
-	} else {
-		// 包含
-		routes.forEach((item) => {
-			if (item.fullPath === to.fullPath) {
-				item.isSele = true
-			} else {
-				item.isSele = false
-			}
-		})
+		store.addRoute({ fullPath, meta })
 	}
 })
 

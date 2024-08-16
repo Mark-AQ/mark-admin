@@ -1,0 +1,32 @@
+ // css全局变量
+ :root {
+     // 左侧菜单栏默认宽带
+     --mk-sidebar-width: 180px;
+ }
+
+ // 整个滚动条
+ ::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+     /* 确保滚动条不会压缩内容 */
+     scrollbar-gutter: stable;
+ }
+
+ // 滚动条上的滚动滑块
+ ::-webkit-scrollbar-thumb {
+     border-radius: 4px;
+     background-color: #90939977;
+ }
+
+ ::-webkit-scrollbar-thumb:hover {
+     background-color: #90939977;
+ }
+
+ ::-webkit-scrollbar-thumb:active {
+     background-color: #90939999;
+ }
+
+ // 当同时有垂直滚动条和水平滚动条时交汇的部分
+ ::-webkit-scrollbar-corner {
+     background-color: transparent;
+ }

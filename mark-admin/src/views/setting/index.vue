@@ -5,8 +5,8 @@
 </template>
 
 <style lang="scss" scoped>
+
 .container {
   @include wh(100%, 900px);
-  
 }
 </style>

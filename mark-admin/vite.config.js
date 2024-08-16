@@ -8,7 +8,10 @@ export default defineConfig(({ mode }) => {
 	console.log(env.VITE_BASE_API)
 	return {
 		base: env.VITE_PUBLIC_PATH, // 开发或生产环境服务的公共基础路径
-		plugins: [vue(), VueSetuoExtend()],
+		plugins: [
+			vue(),
+			VueSetuoExtend(),
+		],
 		resolve: {
 			alias: {
 				'@': '/src', // 将@别名指向src目录

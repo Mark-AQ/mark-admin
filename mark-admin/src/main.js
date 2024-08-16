@@ -2,6 +2,8 @@ import '@/assets/styles/index.scss'
 import 'normalize.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+// 阻止echarts 警告 使用passive屏蔽touchstart和touchmove事件的preventDefault()
+import 'default-passive-events';
 import App from './App.vue'
 import router from './router'
 import ElementPlus from 'element-plus'

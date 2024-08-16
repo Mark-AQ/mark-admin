@@ -1,40 +1,48 @@
 <template>
 	<div class="container">
 		<div style="margin-right: 10px" v-for="(item, idx) in tags" :key="idx">
-			<el-tag :closable="!item.isSele" effect="plain" :type="item.isSele ? 'primary' : 'info'" @click="tap(item)" @close="delItem(item)">
+			<el-tag :closable="item.meta.title !== '首页'" effect="plain"
+				:type="isActive(item.fullPath) ? 'primary' : 'info'" @click="tap(item)" @close="delItem(item)">
 				{{ item.meta.title }}
 			</el-tag>
 		</div>
+
 	</div>
 </template>
 
 <script setup name="tags">
-	import { ref } from 'vue'
-	import { useVisitedRoutes } from '@/store/modules/tabs.js'
-	import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
+import { useVisitedRoutes } from '@/store/modules/tabs.js'
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
+const store = useVisitedRoutes()
+// 函数判断路径是否匹配
+const isActive = (path) => {
+	return route.fullPath === path;
+};
 
-	const store = useVisitedRoutes()
-	const router = useRouter()
-	let tags = ref(store.routes)
+let tags = ref(store.routes)
 
-	const tap = (enevt) => {
-		router.push(enevt.fullPath)
-	}
+const tap = (enevt) => {
+	router.push(enevt.fullPath)
+}
 
-	const delItem = (event) => {
-		store.deleRoute(event)
-	}
+const delItem = (event) => {
+	store.deleRoute(event, isActive(event.fullPath))
+}
 </script>
 
 <style lang="scss" scoped>
-	.container {
-		display: flex;
-		align-items: center;
-		height: 34px;
-		margin-left: 15px;
-		.el-tag {
-			--el-tag-font-size: 13px;
-			padding: 0 10px;
-		}
+.container {
+	display: flex;
+	align-items: center;
+	height: 34px;
+	margin-left: 15px;
+
+	.el-tag {
+		--el-tag-font-size: 13px;
+		padding: 0 10px;
 	}
+}
 </style>

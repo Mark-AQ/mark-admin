@@ -2,12 +2,8 @@
 @import '//at.alicdn.com/t/c/font_4650765_z2o0ezc36ng.css';
 // 主题相关配置
 @import 'theme';
-
-// css全局变量
-:root {
-    // 左侧菜单栏默认宽带
-    --mk-sidebar-width: 180px;
-}
+@import 'mixins';
+@import 'global';
 
 #app {
     width: 100vw;
@@ -17,3 +13,4 @@
     overflow: hidden;
     background-color: var(--mk-bg-color);
 }
+
