@@ -59,14 +59,14 @@ const router = createRouter({
 			path: '/wealth',
 			component: Layouts,
 			redirect: '/wealth',
-			meta: { title: '财富', elIcon: 'MessageBox' },
+			meta: { title: '小案例', elIcon: 'MessageBox' },
 			name: 'Wealth',
 			children: [
 				{
 					path: '/wealth',
 					redirect: '/wealth/a/c',
 					name: 'A',
-					meta: { title: '页面A' },
+					meta: { title: '动画' },
 					children: [
 						{
 							path: '/wealth/a/c',
@@ -85,8 +85,14 @@ const router = createRouter({
 				{
 					path: '/wealth/b',
 					component: () => import('@/views/wealth/index1.vue'),
-					meta: { title: '页面B' },
+					meta: { title: 'CSS奇形怪状' },
 					name: 'B',
+				},
+				{
+					path: '/wealth/e',
+					component: () => import('@/views/wealth/index4.vue'),
+					meta: { title: '转盘小游戏' },
+					name: 'E',
 				},
 			],
 		},

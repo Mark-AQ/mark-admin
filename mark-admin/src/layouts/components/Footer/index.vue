@@ -14,7 +14,7 @@
 	align-items: start;
 	height: 30px;
 	color: var(--mk-text-color);
-
+	opacity: 0.7;
 	span {
 		font-size: 14px;
 	}
