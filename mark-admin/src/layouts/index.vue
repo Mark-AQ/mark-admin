@@ -52,7 +52,6 @@ const visitedRoutes = useVisitedRoutes()
 		background-color: var(--mk-main-bg-color);
 		margin: 15px;
 		border-radius: 5px;
-		// --el-main-padding: 15px;
 	}
 
 	.aside {
